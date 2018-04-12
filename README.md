@@ -1,2 +1,2 @@
-# bplus-libraries
-Business+ Libraries
+# bplus-api
+Business+ API
