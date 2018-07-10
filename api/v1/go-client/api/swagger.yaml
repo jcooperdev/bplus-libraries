@@ -1,0 +1,1020 @@
+---
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: "Paysafe Api"
+basePath: "/"
+schemes:
+- "http"
+- "https"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /companies:
+    get:
+      tags:
+      - "get list of companies"
+      parameters: []
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/createcompany"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /companies/{id}:
+    get:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/updatecompany"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    delete:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /companies/{id}/contact:
+    get:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/updatecontact"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /users:
+    get:
+      tags:
+      - "get list of companies"
+      parameters: []
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/createuser"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /groups:
+    get:
+      tags:
+      - "get list of companies"
+      parameters: []
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/creategroup"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /users/{id}:
+    get:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/updateuser"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    delete:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /groups/{id}:
+    get:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      - in: "body"
+        name: "body"
+        required: false
+        schema:
+          $ref: "#/definitions/creategroup"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+    delete:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /users/{id}/toggle:
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /groups/{id}/toggle:
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /groups/{id}/users:
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/aclgroup"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /users/{id}/groups:
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/acluser"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /users/{id}/reset:
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/reset"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /payments:
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/merchant"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /payments/{id}/account:
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/account"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /payments/{id}/transaction:
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/transaction"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /payments/{id}/setting:
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/setting"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /payments/{id}/owner:
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/ownerr"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /payments/{id}/owner/address:
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/owner"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /payments/{id}/deposits/bank:
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/deposits"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /payments/{id}/documents:
+    post:
+      tags:
+      - "create company"
+      parameters:
+      - name: "id"
+        in: "path"
+        required: true
+        type: "integer"
+        x-exportParamName: "Id"
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/documents"
+        x-exportParamName: "Body"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/GeneralResponse"
+        default:
+          description: "Error"
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /swagger:
+    x-swagger-pipe: "swagger_raw"
+definitions:
+  ErrorResponse:
+    required:
+    - "message"
+    properties:
+      message:
+        type: "object"
+        properties: {}
+  GeneralResponse:
+    type: "object"
+    required:
+    - "success"
+    properties:
+      success:
+        type: "object"
+        properties: {}
+    example:
+      success: "{}"
+  createcompany:
+    required:
+    - "country"
+    - "lang"
+    - "name"
+    properties:
+      name:
+        type: "string"
+      lang:
+        type: "string"
+      country:
+        type: "string"
+  updatecompany:
+    required:
+    - "lang"
+    - "name"
+    - "tz"
+    properties:
+      lang:
+        type: "string"
+      name:
+        type: "string"
+      tz:
+        type: "string"
+  updatecontact:
+    required:
+    - "address"
+    - "address2"
+    - "city"
+    - "company_legal"
+    - "company_name"
+    - "email"
+    - "p_address"
+    - "p_address2"
+    - "p_city"
+    - "p_postal_code"
+    - "p_state"
+    - "p_zip4"
+    - "phone_number"
+    - "postal_code"
+    - "state"
+    - "zip4"
+    properties:
+      company_name:
+        type: "string"
+      company_legal:
+        type: "string"
+      address:
+        type: "string"
+      address2:
+        type: "string"
+      city:
+        type: "string"
+      state:
+        type: "string"
+      postal_code:
+        type: "string"
+      zip4:
+        type: "string"
+      phone_number:
+        type: "string"
+      email:
+        type: "string"
+      p_address:
+        type: "string"
+      p_address2:
+        type: "string"
+      p_city:
+        type: "string"
+      p_state:
+        type: "string"
+      p_postal_code:
+        type: "string"
+      p_zip4:
+        type: "string"
+  creategroup:
+    required:
+    - "description"
+    - "email"
+    - "name"
+    properties:
+      name:
+        type: "string"
+      email:
+        type: "string"
+      description:
+        type: "string"
+  aclgroup:
+    required:
+    - "uid"
+    properties:
+      uid:
+        type: "string"
+  acluser:
+    required:
+    - "gid"
+    properties:
+      gid:
+        type: "string"
+  createuser:
+    required:
+    - "email"
+    - "login"
+    - "name_first"
+    - "name_last"
+    - "password"
+    properties:
+      name_first:
+        type: "string"
+      name_last:
+        type: "string"
+      email:
+        type: "string"
+      login:
+        type: "string"
+      password:
+        type: "string"
+  reset:
+    required:
+    - "change"
+    - "password"
+    properties:
+      password:
+        type: "string"
+      change:
+        type: "boolean"
+  ownerr:
+    required:
+    - "day"
+    - "gender"
+    - "job_title"
+    - "month"
+    - "name_first"
+    - "name_last"
+    - "nationality"
+    - "percentage"
+    - "taxid"
+    - "year"
+    properties:
+      name_first:
+        type: "string"
+      name_last:
+        type: "string"
+      job_title:
+        type: "string"
+      day:
+        type: "string"
+      month:
+        type: "string"
+      year:
+        type: "string"
+      gender:
+        type: "string"
+      nationality:
+        type: "string"
+      taxid:
+        type: "string"
+      percentage:
+        type: "string"
+  updateuser:
+    required:
+    - "email"
+    - "login"
+    - "name_first"
+    - "name_last"
+    properties:
+      name_first:
+        type: "string"
+      name_last:
+        type: "string"
+      email:
+        type: "string"
+      login:
+        type: "string"
+  merchant:
+    required:
+    - "id"
+    - "name"
+    properties:
+      name:
+        type: "string"
+      id:
+        type: "string"
+  account:
+    required:
+    - "company_name"
+    - "legal"
+    - "start_date"
+    - "type"
+    - "vat"
+    - "website"
+    properties:
+      company_name:
+        type: "string"
+      legal:
+        type: "string"
+      type:
+        type: "string"
+      vat:
+        type: "string"
+      website:
+        type: "string"
+      start_date:
+        type: "string"
+  transaction:
+    required:
+    - "acceptance"
+    - "card_present"
+    - "delivery_time"
+    - "previously_accepted"
+    - "ship_goods"
+    - "trx_average"
+    - "trx_high"
+    - "trx_volume"
+    properties:
+      trx_volume:
+        type: "string"
+      trx_average:
+        type: "string"
+      trx_high:
+        type: "string"
+      previously_accepted:
+        type: "string"
+      acceptance:
+        type: "string"
+      card_present:
+        type: "string"
+      ship_goods:
+        type: "string"
+      delivery_time:
+        type: "string"
+  setting:
+    required:
+    - "amex_id"
+    - "currency"
+    - "descriptor"
+    - "descriptor_phone"
+    - "lang"
+    - "locale"
+    properties:
+      currency:
+        type: "string"
+      amex_id:
+        type: "string"
+      descriptor:
+        type: "string"
+      locale:
+        type: "string"
+      lang:
+        type: "string"
+      descriptor_phone:
+        type: "string"
+  owner:
+    required:
+    - "owner_address"
+    - "owner_address2"
+    - "owner_city"
+    - "owner_ctime"
+    - "owner_paddress"
+    - "owner_paddress2"
+    - "owner_pcity"
+    - "owner_pstate"
+    - "owner_ptime"
+    - "owner_pzip"
+    - "owner_pzip4"
+    - "owner_state"
+    - "owner_zip"
+    - "owner_zip4"
+    properties:
+      owner_ctime:
+        type: "string"
+      owner_address:
+        type: "string"
+      owner_address2:
+        type: "string"
+      owner_city:
+        type: "string"
+      owner_state:
+        type: "string"
+      owner_zip:
+        type: "string"
+      owner_zip4:
+        type: "string"
+      owner_ptime:
+        type: "string"
+      owner_paddress:
+        type: "string"
+      owner_paddress2:
+        type: "string"
+      owner_pcity:
+        type: "string"
+      owner_pstate:
+        type: "string"
+      owner_pzip:
+        type: "string"
+      owner_pzip4:
+        type: "string"
+  documents:
+    required:
+    - "expires_day"
+    - "expires_month"
+    - "expires_year"
+    - "issued_day"
+    - "issued_month"
+    - "issued_year"
+    - "issuedby"
+    - "number"
+    - "type"
+    properties:
+      type:
+        type: "string"
+      number:
+        type: "string"
+      issuedby:
+        type: "string"
+      issued_day:
+        type: "string"
+      issued_month:
+        type: "string"
+      issued_year:
+        type: "string"
+      expires_day:
+        type: "string"
+      expires_month:
+        type: "string"
+      expires_year:
+        type: "string"
+  deposits:
+    required:
+    - "account_name"
+    - "account_number"
+    - "country"
+    - "desposit_type"
+    - "instution_id"
+    - "routing_number"
+    properties:
+      desposit_type:
+        type: "string"
+      country:
+        type: "string"
+      account_name:
+        type: "string"
+      account_number:
+        type: "string"
+      routing_number:
+        type: "string"
+      instution_id:
+        type: "string"

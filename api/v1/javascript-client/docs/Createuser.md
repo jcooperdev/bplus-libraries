@@ -1,0 +1,12 @@
+# PaysafeApi.Createuser
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**nameFirst** | **String** |  | 
+**nameLast** | **String** |  | 
+**email** | **String** |  | 
+**login** | **String** |  | 
+**password** | **String** |  | 
+
+
