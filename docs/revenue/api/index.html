@@ -2,12 +2,28 @@
 <head>
 </head>
 <body>
-<header id="header">My Logo</header>
+<header id="header"></header>
 <script src="https://api.apiary.io/seeds/embed.js"></script>
 <script>
   var embed = new Apiary.Embed({
     subdomain: 'bplusv1revenue',
-    header: '#header'
+    header: '#header',
+    hosts: ['production'],
+    theme: {
+      humanColumn {
+        content: {
+          section: {
+            resourceGroups: {
+              resourceGroup: {
+                name: {
+                  display: 'none'
+                },
+              }
+            }
+          } 
+        }
+      }
+    }
   });
 </script>  
 </body>
