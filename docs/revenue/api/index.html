@@ -8,9 +8,13 @@
   var embed = new Apiary.Embed({
     subdomain: 'bplusv1revenue',
     header: '#header',
+    hosts: ['production'],
     preferences: {
-      permalinks: true
-    },
+      permalinks: true,
+      displayHttpMethods: true,
+      displayUriParametersInHumanColumn: true,
+      fluidHumanColumn: true
+    },    
     theme: {
       humanColumn: {
         content: {
