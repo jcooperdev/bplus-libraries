@@ -2,20 +2,23 @@
 <head>
 </head>
 <body>
+  <div id="customHeader">My Logo</div>
+  <div id="docs"></div>
   <script>
     var embed = new Apiary.Embed({
-    "subdomain": "bplusv1revenue",
-    "preferences": {
-      "defaultHost": "production"
+    subdomain: "bplusv1revenue",
+    element: "#docs",
+    preferences: {
+      defaultHost: "production"
     },
-    "theme": {
-      "humanColumn": {
-        "wrapper": {
-          "background": "url(https://help.apiary.io/images/embed/Artboard.png)"
+    theme: {
+      humanColumn: {
+        wrapper: {
+          background: "url(https://help.apiary.io/images/embed/Artboard.png)"
         }
       }
     },
-    "header": ".myHeaderSelector"
+    header: "#header"
   });
   </script>  
 <script src="https://api.apiary.io/seeds/embed.js"></script>  
