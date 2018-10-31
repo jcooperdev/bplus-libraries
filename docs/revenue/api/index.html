@@ -60,12 +60,7 @@
     }
   });
   embed.onReady(function (iframeElement, event) {
-    var elements = frame.getElementsByTagName('a'),
-        len = elements.length;
-
-    while( len-- ) {
-        elements[len].target = "_parent";
-    }
+    alert("Hello! I am an alert box!!");
   });
 </script>  
 </body>
