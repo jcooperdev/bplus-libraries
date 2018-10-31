@@ -59,6 +59,14 @@
       }
     }
   });
+  embed.onReady(function (iframeElement, event) {
+    var elements = frame.getElementsByTagName('a'),
+        len = elements.length;
+
+    while( len-- ) {
+        elements[len].target = "_parent";
+    }
+  });
 </script>  
 </body>
 </html>
