@@ -60,7 +60,12 @@
     }
   });
   embed.onReady(function (iframeElement, event) {
-    window.parent.window.alert("Hello! I am an alert box!!");
+    var anchors = document.getElementsByTagName('a');
+    for (var i=0; i<anchors.length; i++){
+      if (anchors[i].hostname != window.location.hostname) {
+          anchors[i].setAttribute('target', '_top');
+      }
+    }
   });
 </script>  
 </body>
