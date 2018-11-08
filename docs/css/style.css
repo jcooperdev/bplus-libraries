@@ -739,7 +739,7 @@ Search Form
     transform: translateX(-50%) translateY(-50%);
     height: 16px;
     width: 16px;
-    background: url(../img/cd-icons.svg) no-repeat -16px 0;
+    background: url(/img/cd-icons.svg) no-repeat -16px 0;
   }
   .cd-search-trigger::before {
     /* background circle */
