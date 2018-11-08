@@ -1,130 +1,90 @@
-jQuery(document).ready(function(){
-	//cache DOM elements
-	var mainContent = $('.cd-main-content'),
-		header = $('.cd-main-header'),
-		sidebar = $('.cd-side-nav'),
-		sidebarTrigger = $('.cd-nav-trigger'),
-		topNavigation = $('.cd-top-nav'),
-		searchForm = $('.cd-search'),
-		accountInfo = $('.account');
+jQuery(document).ready(function($){
+	var resizing = false,
+		navigationWrapper = $('.cd-main-nav-wrapper'),
+		navigation = navigationWrapper.children('.cd-main-nav'),
+		searchForm = $('.cd-main-search'),
+		pageContent = $('.cd-main-content'),
+		searchTrigger = $('.cd-search-trigger'),
+		coverLayer = $('.cd-cover-layer'),
+		navigationTrigger = $('.cd-nav-trigger'),
+		mainHeader = $('.cd-main-header');
+	
+	function checkWindowWidth() {
+		var mq = window.getComputedStyle(mainHeader.get(0), '::before').getPropertyValue('content').replace(/"/g, '').replace(/'/g, "");
+		return mq;
+	}
 
-	//on resize, move search and top nav position according to window width
-	var resizing = false;
-	moveNavigation();
-	$(window).on('resize', function(){
+	function checkResize() {
 		if( !resizing ) {
-			(!window.requestAnimationFrame) ? setTimeout(moveNavigation, 300) : window.requestAnimationFrame(moveNavigation);
 			resizing = true;
+			(!window.requestAnimationFrame) ? setTimeout(moveNavigation, 300) : window.requestAnimationFrame(moveNavigation);
 		}
-	});
-
-	//on window scrolling - fix sidebar nav
-	var scrolling = false;
-	checkScrollbarPosition();
-	$(window).on('scroll', function(){
-		if( !scrolling ) {
-			(!window.requestAnimationFrame) ? setTimeout(checkScrollbarPosition, 300) : window.requestAnimationFrame(checkScrollbarPosition);
-			scrolling = true;
-		}
-	});
-
-	//mobile only - open sidebar when user clicks the hamburger menu
-	sidebarTrigger.on('click', function(event){
-		event.preventDefault();
-		$([sidebar, sidebarTrigger]).toggleClass('nav-is-visible');
-	});
-
-	//click on item and show submenu
-	$('.has-children > a').on('click', function(event){
-		var mq = checkMQ(),
-			selectedItem = $(this);
-		if( mq == 'mobile' || mq == 'tablet' ) {
-			event.preventDefault();
-			if( selectedItem.parent('li').hasClass('selected')) {
-				selectedItem.parent('li').removeClass('selected');
-			} else {
-				sidebar.find('.has-children.selected').removeClass('selected');
-				accountInfo.removeClass('selected');
-				selectedItem.parent('li').addClass('selected');
-			}
-		}
-	});
-
-	//click on account and show submenu - desktop version only
-	accountInfo.children('a').on('click', function(event){
-		var mq = checkMQ(),
-			selectedItem = $(this);
-		if( mq == 'desktop') {
-			event.preventDefault();
-			accountInfo.toggleClass('selected');
-			sidebar.find('.has-children.selected').removeClass('selected');
-		}
-	});
-
-	$(document).on('click', function(event){
-		if( !$(event.target).is('.has-children a') ) {
-			sidebar.find('.has-children.selected').removeClass('selected');
-			accountInfo.removeClass('selected');
-		}
-	});
-
-	//on desktop - differentiate between a user trying to hover over a dropdown item vs trying to navigate into a submenu's contents
-	sidebar.children('ul').menuAim({
-        activate: function(row) {
-        	$(row).addClass('hover');
-        },
-        deactivate: function(row) {
-        	$(row).removeClass('hover');
-        },
-        exitMenu: function() {
-        	sidebar.find('.hover').removeClass('hover');
-        	return true;
-        },
-        submenuSelector: ".has-children",
-    });
-
-	function checkMQ() {
-		//check if mobile or desktop device
-		return window.getComputedStyle(document.querySelector('.cd-main-content'), '::before').getPropertyValue('content').replace(/'/g, "").replace(/"/g, "");
 	}
 
 	function moveNavigation(){
-  		var mq = checkMQ();
-        
-        if ( mq == 'mobile' && topNavigation.parents('.cd-side-nav').length == 0 ) {
-        	detachElements();
-			topNavigation.appendTo(sidebar);
-			searchForm.removeClass('is-hidden').prependTo(sidebar);
-		} else if ( ( mq == 'tablet' || mq == 'desktop') &&  topNavigation.parents('.cd-side-nav').length > 0 ) {
-			detachElements();
-			searchForm.insertAfter(header.find('.cd-logo'));
-			topNavigation.appendTo(header.find('.cd-nav'));
+  		var screenSize = checkWindowWidth();
+        if ( screenSize == 'desktop' && (navigationTrigger.siblings('.cd-main-search').length == 0) ) {
+        	//desktop screen - insert navigation and search form inside <header>
+        	searchForm.detach().insertBefore(navigationTrigger);
+			navigationWrapper.detach().insertBefore(searchForm).find('.cd-serch-wrapper').remove();
+		} else if( screenSize == 'mobile' && !(mainHeader.children('.cd-main-nav-wrapper').length == 0)) {
+			//mobile screen - move navigation and search form after .cd-main-content element
+			navigationWrapper.detach().insertAfter('.cd-main-content');
+			var newListItem = $('<li class="cd-serch-wrapper"></li>');
+			searchForm.detach().appendTo(newListItem);
+			newListItem.appendTo(navigation);
 		}
-		checkSelected(mq);
+
 		resizing = false;
 	}
 
-	function detachElements() {
-		topNavigation.detach();
-		searchForm.detach();
+	function closeSearchForm() {
+		searchTrigger.removeClass('search-form-visible');
+		searchForm.removeClass('is-visible');
+		coverLayer.removeClass('search-form-visible');
 	}
 
-	function checkSelected(mq) {
-		//on desktop, remove selected class from items selected on mobile/tablet version
-		if( mq == 'desktop' ) $('.has-children.selected').removeClass('selected');
-	}
+	//add the .no-pointerevents class to the <html> if browser doesn't support pointer-events property
+	( !Modernizr.testProp('pointerEvents') ) && $('html').addClass('no-pointerevents');
 
-	function checkScrollbarPosition() {
-		var mq = checkMQ();
-		
-		if( mq != 'mobile' ) {
-			var sidebarHeight = sidebar.outerHeight(),
-				windowHeight = $(window).height(),
-				mainContentHeight = mainContent.outerHeight(),
-				scrollTop = $(window).scrollTop();
+	//move navigation and search form elements according to window width
+	moveNavigation();
+	$(window).on('resize', checkResize);
 
-			( ( scrollTop + windowHeight > sidebarHeight ) && ( mainContentHeight - sidebarHeight != 0 ) ) ? sidebar.addClass('is-fixed').css('bottom', 0) : sidebar.removeClass('is-fixed').attr('style', '');
+	//mobile version - open/close navigation
+	navigationTrigger.on('click', function(event){
+		event.preventDefault();
+		mainHeader.add(navigation).add(pageContent).toggleClass('nav-is-visible');
+	});
+
+	searchTrigger.on('click', function(event){
+		event.preventDefault();
+		if( searchTrigger.hasClass('search-form-visible') ) {
+			searchForm.find('form').submit();
+		} else {
+			searchTrigger.addClass('search-form-visible');
+			coverLayer.addClass('search-form-visible');
+			searchForm.addClass('is-visible').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+				searchForm.find('input[type="search"]').focus().end().off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
+			});
 		}
-		scrolling = false;
-	}
+	});
+
+	//close search form
+	searchForm.on('click', '.close', function(){
+		closeSearchForm();
+	});
+
+	coverLayer.on('click', function(){
+		closeSearchForm();
+	});
+	
+	$(document).keyup(function(event){
+		if( event.which=='27' ) closeSearchForm();
+	});
+
+	//upadate span.selected-value text when user selects a new option
+	searchForm.on('change', 'select', function(){
+		searchForm.find('.selected-value').text($(this).children('option:selected').text());
+	});
 });
