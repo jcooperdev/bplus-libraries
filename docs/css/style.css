@@ -3,6 +3,15 @@
 Primary style
 
 -------------------------------- */
+input:focus {
+    color: #ff0000;
+}
+
+input, select, textarea{
+    color: #000;
+}
+
+
 *, *::after, *::before {
   box-sizing: border-box;
 }
