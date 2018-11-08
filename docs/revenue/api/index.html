@@ -4,123 +4,97 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" href="/css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="/css/style.css"> <!-- Resource style -->
 	<script src="/js/modernizr.js"></script> <!-- Modernizr -->
   	
-	<title>Responsive Sidebar Navigation | CodyHouse</title>
+	<title>Revenue API | Business+</title>
 </head>
 <body>
-	<header class="cd-main-header">
-		<a href="#0" class="cd-logo"><img src="#" alt="Logo"></a>
-		
-		<div class="cd-search is-hidden">
-			<form action="#0">
-				<input type="search" placeholder="Search...">
-			</form>
-		</div> <!-- cd-search -->
+	<header class="cd-main-header animate-search">
+		<div class="cd-logo"><a href="#0"><img src="img/cd-logo.svg" alt="Logo"></a></div>
 
-		<a href="#0" class="cd-nav-trigger">Menu<span></span></a>
+		<nav class="cd-main-nav-wrapper">
+			<a href="#search" class="cd-search-trigger cd-text-replace">Search</a>
+			
+			<ul class="cd-main-nav">
+				<li><a href="#0">Products</a></li>
+				<li><a href="#0">Store</a></li>
+				<li><a href="#0">Blog</a></li>
+				<li><a href="#0">Contact</a></li>
+			</ul> <!-- .cd-main-nav -->
+		</nav> <!-- .cd-main-nav-wrapper -->
 
-		<nav class="cd-nav">
-			<ul class="cd-top-nav">
-				<li><a href="#0">Tour</a></li>
-				<li><a href="#0">Support</a></li>
-				<li class="has-children account">
-					<a href="#0">
-						<img src="img/cd-avatar.png" alt="avatar">
-						Account
-					</a>
-
-					<ul>
-
-						<li><a href="#0">My Account</a></li>
-						<li><a href="#0">Edit Account</a></li>
-						<li><a href="#0">Logout</a></li>
-					</ul>
-				</li>
-			</ul>
-		</nav>
-	</header> <!-- .cd-main-header -->
-
+		<a href="#0" class="cd-nav-trigger cd-text-replace">Menu<span></span></a>
+	</header>
+	
 	<main class="cd-main-content">
-		<nav class="cd-side-nav">
-			<ul>
-				<li class="cd-label">Main</li>
-				<li class="has-children overview">
-					<a href="#0">Overview</a>
-					
-					<ul>
-						<li><a href="#0">All Data</a></li>
-						<li><a href="#0">Category 1</a></li>
-						<li><a href="#0">Category 2</a></li>
-					</ul>
-				</li>
-				<li class="has-children notifications active">
-					<a href="#0">Notifications<span class="count">3</span></a>
-					
-					<ul>
-						<li><a href="#0">All Notifications</a></li>
-						<li><a href="#0">Friends</a></li>
-						<li><a href="#0">Other</a></li>
-					</ul>
-				</li>
+		<!-- your content here -->
+		<div class="content-center">
+			<h1>Advanced Search Form</h1>
+			<a href="https://codyhouse.co/?p=8084" class="cd-download-btn">Article &amp; Download</a>
+		</div>
+	</main>
 
-				<li class="has-children comments">
-					<a href="#0">Comments</a>
-					
-					<ul>
-						<li><a href="#0">All Comments</a></li>
-						<li><a href="#0">Edit Comment</a></li>
-						<li><a href="#0">Delete Comment</a></li>
-					</ul>
-				</li>
-			</ul>
+	<div id="search" class="cd-main-search">
+		<form>
+			<input type="search" placeholder="Search...">
 
-			<ul>
-				<li class="cd-label">Secondary</li>
-				<li class="has-children bookmarks">
-					<a href="#0">Bookmarks</a>
-					
-					<ul>
-						<li><a href="#0">All Bookmarks</a></li>
-						<li><a href="#0">Edit Bookmark</a></li>
-						<li><a href="#0">Import Bookmark</a></li>
-					</ul>
-				</li>
-				<li class="has-children images">
-					<a href="#0">Images</a>
-					
-					<ul>
-						<li><a href="#0">All Images</a></li>
-						<li><a href="#0">Edit Image</a></li>
-					</ul>
-				</li>
+			<div class="cd-select">
+				<span>in</span>
+				<select name="select-category">
+					<option value="all-categories">all Categories</option>
+					<option value="category1">Category 1</option>
+					<option value="category2">Category 2</option>
+					<option value="category3">Category 3</option>
+				</select>
+				<span class="selected-value">all Categories</span>
+			</div>
+		</form>
 
-				<li class="has-children users">
-					<a href="#0">Users</a>
-					
-					<ul>
-						<li><a href="#0">All Users</a></li>
-						<li><a href="#0">Edit User</a></li>
-						<li><a href="#0">Add User</a></li>
-					</ul>
-				</li>
-			</ul>
+		<div class="cd-search-suggestions">
+			<div class="news">
+				<h3>News</h3>
+				<ul>
+					<li>
+						<a class="image-wrapper" href="#0"><img src="img/placeholder.png" alt="News image"></a>
+						<h4><a class="cd-nowrap" href="#0">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h4>
+						<time datetime="2016-01-12">Feb 03, 2016</time>
+					</li>
 
-			<ul>
-				<li class="cd-label">Action</li>
-				<li class="action-btn"><a href="#0">+ Button</a></li>
-			</ul>
-		</nav>
+					<li>
+						<a class="image-wrapper" href="#0"><img src="img/placeholder.png" alt="News image"></a>
+						<h4><a class="cd-nowrap" href="#0">Incidunt voluptatem adipisci voluptates fugit beatae culpa eum, distinctio, assumenda est ad</a></h4>
+						<time datetime="2016-01-12">Jan 28, 2016</time>
+					</li>
 
-		<div class="content-wrapper">
-		</div> <!-- .content-wrapper -->
-	</main> <!-- .cd-main-content -->
+					<li>
+						<a class="image-wrapper" href="#0"><img src="img/placeholder.png" alt="News image"></a>
+						<h4><a class="cd-nowrap" href="#0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, esse.</a></h4>
+						<time datetime="2016-01-12">Jan 12, 2016</time>
+					</li>
+				</ul>
+			</div> <!-- .news -->
+
+			<div class="quick-links">
+				<h3>Quick Links</h3>
+				<ul>
+					<li><a href="#0">Find a store</a></li>
+					<li><a href="#0">Accessories</a></li>
+					<li><a href="#0">Warranty info</a></li>
+					<li><a href="#0">Support</a></li>
+					<li><a href="#0">Contact us</a></li>
+				</ul>
+			</div> <!-- .quick-links -->
+		</div> <!-- .cd-search-suggestions -->
+
+		<a href="#0" class="close cd-text-replace">Close Form</a>
+	</div> <!-- .cd-main-search -->
+
+	<div class="cd-cover-layer"></div> <!-- cover main content when search form is open -->
 <script src="/js/jquery-2.1.4.js"></script>
-<script src="/js/jquery.menu-aim.js"></script>
 <script src="/js/main.js"></script>
 <script src="https://api.apiary.io/seeds/embed.js"></script>
 <script>
@@ -133,9 +107,6 @@
       fluidHumanColumn: true
     },    
     theme: {
-      tableOfContents: {
-	display: 'none'
-      },
       humanColumn: {
         content: {         
           section: {
