@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Productivity API | Business+</title>  
+<link rel="shortcut icon" href="https://www.businessplus.com/favicon.ico">  
+</head>
+<body>
+<header id="header"></header>
+<script src="https://api.apiary.io/seeds/embed.js"></script>
+<script>
+  var embed = new Apiary.Embed({
+    subdomain: 'bplusv1productivity',
+    header: '#header',
+    hosts: ['production','mock'],
+    preferences: {
+      permalinks: true,
+      fluidHumanColumn: true
+    },    
+    theme: {
+      humanColumn: {
+        content: {         
+          section: {
+            apiDescription: {
+              ul: {
+                li: {
+                  fontSize: '1pc',
+                  lineHeight: '200%'
+                }
+          },               
+            },
+            resourceGroups: {
+              resourceGroup: {
+                name: {
+                },
+                resources: {
+                  resource: {
+                    marginBottom: '0px',
+                    name: {
+                      display: 'none'  
+                    },
+                  }
+                }
+              }
+            }
+          } 
+        }
+      },
+      machineColumn: {
+        content: {
+          breadcrumbs: {
+            resourceGroup: {
+              display: 'inline',
+              marginRight: '-25px'
+            },
+            resource: {
+              display: 'none'
+            }
+          }
+        }
+      }
+    }
+  });
+  embed.onReady(function (iframeElement, event) {
+  });
+</script>  
+</body>
+</html>
